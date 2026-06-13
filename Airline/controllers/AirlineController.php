@@ -57,22 +57,7 @@ function GetAirlineByName($connection)
     );
 }
 
-function AddAirline($connection)
-{
-    $data = json_decode(
-        file_get_contents("php://input"),
-        true
-    );
 
-    if (
-        empty($data["AirlineName"])
-    )
-    {
-        response(
-            422,
-            "AirlineName Required"
-        );
-    }
 
     $result = AddAirlineRepo(
         $connection,
